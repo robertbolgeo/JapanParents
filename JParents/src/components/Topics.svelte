@@ -60,8 +60,8 @@
 </script>
 
 <SectionWrapper id="topics">
-	<p>This is where the forums go.</p>
-	<table class="table-auto border-collapse self-center w-2/3 border border-slate-600 text-m md:text-l lg:text-xl xl:text-2xl">
+	
+	<table class="table-auto border-collapse self-center w-2/3 border border-slate-600 text-s md:text-m lg:text-lg xl:text-xl">
 		<thead>
 			<tr>
 				<th colspan="3" class="border bg-blue-950 text-white border-slate-600">Latest Topics</th>
@@ -71,13 +71,13 @@
 			<tr class="border border-collapse border-slate-600 hidden sm:table-row">
 				<td>Subject:</td>
 				<td class="px-6">Created by:</td>
-				<td class="px-6">Last comment posted on:</td>
+				<td class="px-6">Latest comment:</td>
 			</tr>
 			{#each forumPosts as post, index}
 				<tr id={index.toString()} class={index % 2 === 0 ? 'bg-blue-300 border border-collapse border-slate-600' : "border border-collapse border-slate-600"}>
-					<td><a href="/topics/{post.id}">{post.title}</a></td>
-					<td>{post.created_by}</td>
-					<td>{fromNow(post.date_of_last_comment)}</td>
+					<td class="hover:text-slate-400 hover:underline py-8 px-4 md:pr-24"><a href="/topics/{post.id}">{post.title}</a></td>
+					<td class="hidden md:table-cell">{post.created_by}</td>
+					<td class="hidden md:table-cell">{fromNow(post.date_of_last_comment)}</td>
 				</tr>
 			{/each}
 		</tbody>
