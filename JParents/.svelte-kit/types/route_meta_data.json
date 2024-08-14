@@ -1,0 +1,35 @@
+{
+	"/": [
+		"src/routes/+page.server.ts",
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/resources": [
+		"src/routes/resources/+page.server.js",
+		"src/routes/+layout.ts"
+	],
+	"/topics": [
+		"src/routes/topics/+page.server.js",
+		"src/routes/+layout.ts"
+	],
+	"/topics/new": [
+		"src/routes/topics/new/+page.server.js",
+		"src/routes/+layout.ts"
+	],
+	"/topics/[index]": [
+		"src/routes/topics/[index]/+page.server.js",
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/users/login": [
+		"src/routes/+layout.ts"
+	],
+	"/users/registration": [
+		"src/routes/users/registration/+page.server.js",
+		"src/routes/+layout.ts"
+	],
+	"/users/[id]": [
+		"src/routes/users/[id]/+page.server.js",
+		"src/routes/+layout.ts"
+	]
+}
