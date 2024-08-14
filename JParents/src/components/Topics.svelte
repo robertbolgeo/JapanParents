@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import SectionWrapper from './SectionWrapper.svelte';
 	import { formatDistanceToNow } from 'date-fns';
 

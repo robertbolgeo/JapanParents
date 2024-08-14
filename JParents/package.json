@@ -37,9 +37,17 @@
 	"type": "module",
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
+		"@supabase/auth-ui-shared": "^0.1.8",
+		"@supabase/auth-ui-svelte": "^0.2.9",
+		"@supabase/ssr": "^0.4.0",
+		"@supabase/supabase-js": "^2.45.1",
 		"date-fns": "^3.6.0",
 		"flowbite": "^2.5.1",
 		"flowbite-svelte": "^0.46.15",
 		"tailwind-merge": "^2.4.0"
-	}
+	},
+	"description": "Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).",
+	"main": "eslint.config.js",
+	"author": "",
+	"license": "ISC"
 }
