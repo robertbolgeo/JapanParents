@@ -1,26 +1,19 @@
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from "$env/static/public";
-import { createBrowserClient, createServerClient, isBrowser, parse } from "@supabase/ssr";
-import type { LayoutLoad } from "./$types"
+import { createSupabaseLoadClient } from "@supabase/auth-helpers-sveltekit";
+import type {Database} from '../schema'
 
 export const ssr = false;
 
-export const load: LayoutLoad = async ({fetch, data, depends}: any) => {
+export const load = async ({fetch, data, depends}: any) => {
    depends('supabase:auth')
 
-   const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-      global: {
-         fetch
-      },
-      cookies: {
-         get(key) {
-            if (!isBrowser()) {
-               return JSON.stringify(data.session);
-            }
-            const cookie = parse(document.cookie);
-            return cookie[key];
-         }
-      }
-   });
+   const supabase = createSupabaseLoadClient<Database>({
+      supabaseUrl:PUBLIC_SUPABASE_URL, 
+      supabaseKey:PUBLIC_SUPABASE_ANON_KEY,
+      event: {fetch},
+      serverSession: data.session
+   })
+      
    const {
       data: { session }
    } = await supabase.auth.getSession();

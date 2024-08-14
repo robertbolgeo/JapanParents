@@ -1,6 +1,4 @@
 <script lang='ts'>
-	import Login from "../../../components/Login.svelte";
-	import SectionWrapper from "../../../components/SectionWrapper.svelte";
 	import Registration from "../../../components/Registration.svelte"
 	import { Auth } from "@supabase/auth-ui-svelte";
 	import { ThemeSupa } from "@supabase/auth-ui-shared";
@@ -36,4 +34,4 @@
 			}
 		}
 	}}
-	}/> </Registration>
+	/> </Registration>
