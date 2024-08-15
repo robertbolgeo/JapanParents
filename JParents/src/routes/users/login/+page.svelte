@@ -14,8 +14,9 @@
 </script>
 
 <Login><Auth 
-	supabaseClient={supabase}
+	supabaseClient={data.supabase}
 	view="sign_in"
+	redirectTo={`${data.url}/auth/callback`}
 	appearance={{
 		theme: ThemeSupa,
 	}
