@@ -1,24 +1,21 @@
-<script>
+<script lang="ts">
 	export let data;
 	import '../app.css';
 	import Footer from '../components/Footer.svelte';
 	import Nav from '../components/Nav.svelte';
-	import { Auth } from "@supabase/auth-ui-svelte";
-	import { ThemeSupa } from "@supabase/auth-ui-shared";
-	import { goto, invalidateAll } from "$app/navigation";
-	let { supabase, session } = data;
-	$: ({supabase, session } = data)
+	import { goto, invalidate, invalidateAll } from "$app/navigation";
+	import { onMount } from 'svelte';
+	$: ({session, supabase } = data)
 
-	//if session is null there is no user.
-	supabase.auth.onAuthStateChange(async(event, session) => {
-		if(event === "SIGNED_IN") {
-			invalidateAll();
-		}
-		if(event === "SIGNED_OUT"){
-			await goto("/");
-			invalidateAll();
-		}
-	})
+	// if session is null there is no user.
+onMount(() => {
+	const { data } = supabase.auth.onAuthStateChange((_, _newSession) => {
+		if (_newSession?.expires_at !== session?.expires_at) {
+			invalidate('supabase:auth')
+		}	
+	});
+	return () => data.subscription.unsubscribe()
+})
 </script>
 
 <Nav data={data}/>

@@ -3,6 +3,7 @@
 	import { Auth } from "@supabase/auth-ui-svelte";
 	import { ThemeSupa } from "@supabase/auth-ui-shared";
 	import { goto } from "$app/navigation";
+	import { Button } from "flowbite-svelte";
 	let { supabase, session } = data;
 	$: ({supabase, session } = data)
 
@@ -26,8 +27,8 @@
             <a href="/users/login" class="duration-200 text-primary-300 cursor-pointer hover:underline">Log in /</a>
          <a href="/users/registration" class="duration-200 hover:underline text-primary-300 cursor-pointer">  Sign up</a>
          {:else}
-         <p>Welcome <a href="/users/{session.user.email}" class="duration-200 text-primary-300 cursor-pointer hover:underline">{session.user.email}</a></p>
-         <button on:click={async () => await supabase.auth.signout()} class="duration-200 text-primary-300 cursor-pointer hover:underline">Log out </button>
+        <a href="/users/{session.user.email}" class="duration-200 text-primary-300 cursor-pointer hover:underline">{session.user.email} | </a>
+         <button on:click={async () => await supabase.auth.signOut()} class="bg-primary-800 duration-200 text-primary-300 cursor-pointer hover:underline">Log out </button>
          {/if}
       </div>
          <a href="/topics/new">
