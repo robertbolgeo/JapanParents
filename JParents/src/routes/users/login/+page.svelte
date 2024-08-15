@@ -1,10 +1,10 @@
 <script lang='ts'>
+	export let data;
 	import Login from "../../../components/Login.svelte";
 	import SectionWrapper from "../../../components/SectionWrapper.svelte";
 	import { Auth } from "@supabase/auth-ui-svelte";
 	import { ThemeSupa } from "@supabase/auth-ui-shared";
 	import { goto } from "$app/navigation";
-	export let data;
 	let { supabase, session } = data;
 	$: ({supabase, session } = data)
 	$: if(session){
@@ -35,4 +35,4 @@
 			}
 		}
 	}}
-	}/> </Login>
+	/> </Login>

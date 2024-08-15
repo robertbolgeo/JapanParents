@@ -36,4 +36,4 @@
 			}
 		}
 	}}
-	}/> </Registration>
+	/> </Registration>

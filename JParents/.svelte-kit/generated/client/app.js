@@ -14,17 +14,17 @@ export const nodes = [
 	() => import('./nodes/10')
 ];
 
-export const server_loads = [];
+export const server_loads = [0];
 
 export const dictionary = {
 		"/": [~3],
-		"/resources": [~4],
-		"/topics": [~5],
-		"/topics/new": [~7],
-		"/topics/[index]": [~6,[2]],
-		"/users/login": [9],
-		"/users/registration": [~10],
-		"/users/[id]": [~8]
+		"/resources": [4],
+		"/topics": [5],
+		"/topics/new": [7],
+		"/topics/[index]": [6,[2]],
+		"/users/login": [~9],
+		"/users/registration": [10],
+		"/users/[id]": [8]
 	};
 
 export const hooks = {
